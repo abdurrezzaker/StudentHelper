@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="colorPrimary">#449C47</color>
+    <color name="my_dark_primary">#449C47</color>
+    <color name="maincolors">#C8E6C9</color>
+    <color name="enterbutton">#449C47</color>
+    <color name="signupbutton">#C7E5C8</color>
+    <color name="textarkaplan">#C4D1C4</color>
+
+
 </resources>
