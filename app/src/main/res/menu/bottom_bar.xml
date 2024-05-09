@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item
+    android:id="@+id/ic_home"
+    android:icon="@drawable/baseline_home_24"
+    android:title="AnaSayfa"/>
+
+<item
+    android:id="@+id/ic_calender"
+    android:icon="@drawable/baseline_calendar_month_24"
+    android:title="Program"/>
+
+<item
+    android:id="@+id/ic_chat"
+    android:title="Sohbet"
+    android:icon="@drawable/baseline_chat_24"/>
+
+
+</menu>

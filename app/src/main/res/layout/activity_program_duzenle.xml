@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/main"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="10dp"
+        android:text="Pazartesi"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="363dp"
+        android:layout_height="92dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="45dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            >
+
+
+            <EditText
+                android:id="@+id/editTextText5"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Ders Adı"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/pztbassaati"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Baslangic saati"
+                android:inputType="time" />
+
+            <EditText
+                android:id="@+id/pztbitsaati"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Bitis saati"
+                android:inputType="time" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/kaydolbutton"
+                android:text="+"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/SaliScroolview"
+        android:layout_width="363dp"
+        android:layout_height="92dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/Salidersadi"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="DersAdı"
+                android:inputType="text"/>
+
+            <EditText
+                android:id="@+id/salibassaati"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Baslangic saati"
+                android:inputType="time" />
+
+            <EditText
+                android:id="@+id/salibitsaati"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Bitis saati"
+                android:inputType="time" />
+
+            <Button
+                android:id="@+id/buttonsali"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/kaydolbutton"
+                android:text="+"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="10dp"
+        android:text="Salı"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
+    <ScrollView
+        android:id="@+id/ScrollView3"
+        android:layout_width="363dp"
+        android:layout_height="92dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/cardersadi"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="DersAdı"
+                android:inputType="text"/>
+
+            <EditText
+                android:id="@+id/carbassaati"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Baslangic saati"
+                android:inputType="time" />
+
+            <EditText
+                android:id="@+id/carbitsaati"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Bitis saati"
+                android:inputType="time" />
+
+            <Button
+                android:id="@+id/buttoncar"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/kaydolbutton"
+                android:text="+"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="10dp"
+        android:text="Çarşamba"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SaliScroolview" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="10dp"
+        android:text="Perşembe"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ScrollView3" />
+
+    <ScrollView
+        android:id="@+id/persembescrollview"
+        android:layout_width="363dp"
+        android:layout_height="92dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/perdersadi"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="DersAdı"
+                android:inputType="text"/>
+
+            <EditText
+                android:id="@+id/perbassaati"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Baslangic saati"
+                android:inputType="time" />
+
+            <EditText
+                android:id="@+id/perbitsaati"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Bitis saati"
+                android:inputType="time" />
+
+            <Button
+                android:id="@+id/buttonper"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/kaydolbutton"
+                android:text="+"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="15dp"
+        android:text="Cuma"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/persembescrollview" />
+
+    <ScrollView
+        android:id="@+id/Cumascrollview"
+        android:layout_width="363dp"
+        android:layout_height="93dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/cumdersadi"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="DersAdı"
+                android:inputType="text"/>
+
+            <EditText
+                android:id="@+id/cumbassaati"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Baslangic saati"
+                android:inputType="time" />
+
+            <EditText
+                android:id="@+id/cumbitsaati"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Bitis saati"
+                android:inputType="time" />
+
+            <Button
+                android:id="@+id/buttoncum"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/kaydolbutton"
+                android:text="+"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/buttonkaydet"
+        android:layout_width="110dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/button_giris"
+        android:text="Kaydet"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Cumascrollview" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
