@@ -15,6 +15,7 @@ import com.abdurezaker.studenthelper.R
 import androidx.appcompat.app.AppCompatActivity
 import com.abdurezaker.studenthelper.AnaSayfa
 import com.abdurezaker.studenthelper.MainKayitOl
+import com.abdurezaker.studenthelper.PlanDuzenle
 import com.abdurezaker.studenthelper.ProgramDuzenle
 
 
@@ -60,10 +61,17 @@ class CalenderFragment : Fragment() {
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, items)
         listView.adapter = adapter
 
-        val button = view.findViewById<Button>(R.id.button7)
+        val button = view.findViewById<Button>(R.id.programduzenle)
         button.setOnClickListener {
             // Yeni aktiviteye geçmek için Intent oluştur
             val intent = Intent(requireContext(), ProgramDuzenle::class.java)
+            startActivity(intent)
+        }
+
+        val planbutton = view.findViewById<Button>(R.id.planekle)
+        planbutton.setOnClickListener {
+
+            val intent = Intent(requireContext(),PlanDuzenle::class.java)
             startActivity(intent)
         }
 
