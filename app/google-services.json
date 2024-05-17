@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1000697026740",
+    "project_id": "studenthelper-610ed",
+    "storage_bucket": "studenthelper-610ed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1000697026740:android:333e2330f0561f67d79fe1",
+        "android_client_info": {
+          "package_name": "com.abdurezaker.studenthelper"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_uBu0qq6Wzf9IwFZtTtXcUiTDlRsAZ88"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
