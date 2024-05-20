@@ -51,7 +51,7 @@
                     android:orientation="vertical">
 
                     <EditText
-                        android:id="@+id/pztdersadi"
+                        android:id="@+id/pztdersText"
                         android:layout_width="400dp"
                         android:layout_height="49dp"
                         android:hint="Ders Adı"
@@ -60,7 +60,7 @@
                     </EditText>
 
                     <EditText
-                        android:id="@+id/pztbassaati"
+                        android:id="@+id/pztbassaatText"
                         android:layout_width="400dp"
                         android:layout_height="49dp"
                         android:hint="Başlangıç Saati"
@@ -69,7 +69,7 @@
                     </EditText>
 
                     <EditText
-                        android:id="@+id/pztbitsaati"
+                        android:id="@+id/pztbitsaatText"
                         android:layout_width="400dp"
                         android:layout_height="49dp"
                         android:hint="Bitis Saati"
@@ -122,7 +122,7 @@
                     android:orientation="vertical">
 
                     <EditText
-                        android:id="@+id/salidersadi"
+                        android:id="@+id/salidersText"
                         android:layout_width="400dp"
                         android:layout_height="49dp"
                         android:hint="Ders Adı"
@@ -131,7 +131,7 @@
                     </EditText>
 
                     <EditText
-                        android:id="@+id/salibassaati"
+                        android:id="@+id/salibassaatText"
                         android:layout_width="400dp"
                         android:layout_height="49dp"
                         android:hint="Başlangıç Saati"
@@ -140,7 +140,7 @@
                     </EditText>
 
                     <EditText
-                        android:id="@+id/salibitsaati"
+                        android:id="@+id/salibitsaatText"
                         android:layout_width="400dp"
                         android:layout_height="49dp"
                         android:hint="Bitis Saati"
@@ -193,7 +193,7 @@
                     android:orientation="vertical">
 
                     <EditText
-                        android:id="@+id/cardersadi"
+                        android:id="@+id/cardersText"
                         android:layout_width="400dp"
                         android:layout_height="49dp"
                         android:hint="Ders Adı"
@@ -202,7 +202,7 @@
                     </EditText>
 
                     <EditText
-                        android:id="@+id/carbassaati"
+                        android:id="@+id/carbassaatText"
                         android:layout_width="400dp"
                         android:layout_height="49dp"
                         android:hint="Başlangıç Saati"
@@ -211,7 +211,7 @@
                     </EditText>
 
                     <EditText
-                        android:id="@+id/carbitsaati"
+                        android:id="@+id/carbitsaatText"
                         android:layout_width="400dp"
                         android:layout_height="49dp"
                         android:hint="Bitis Saati"
@@ -264,7 +264,7 @@
                     android:orientation="vertical">
 
                     <EditText
-                        android:id="@+id/perdersadi"
+                        android:id="@+id/perdersText"
                         android:layout_width="400dp"
                         android:layout_height="49dp"
                         android:hint="Ders Adı"
@@ -273,7 +273,7 @@
                     </EditText>
 
                     <EditText
-                        android:id="@+id/perbassaati"
+                        android:id="@+id/perbassaatText"
                         android:layout_width="400dp"
                         android:layout_height="49dp"
                         android:hint="Başlangıç Saati"
@@ -282,7 +282,7 @@
                     </EditText>
 
                     <EditText
-                        android:id="@+id/perbitsaati"
+                        android:id="@+id/perbitsaatText"
                         android:layout_width="400dp"
                         android:layout_height="49dp"
                         android:hint="Bitis Saati"
@@ -335,7 +335,7 @@
                     android:orientation="vertical">
 
                     <EditText
-                        android:id="@+id/cumdersadi"
+                        android:id="@+id/cumdersText"
                         android:layout_width="400dp"
                         android:layout_height="49dp"
                         android:hint="Ders Adı"
@@ -344,7 +344,7 @@
                     </EditText>
 
                     <EditText
-                        android:id="@+id/cumbassaati"
+                        android:id="@+id/cumbassaatText"
                         android:layout_width="400dp"
                         android:layout_height="49dp"
                         android:hint="Başlangıç Saati"
@@ -353,7 +353,7 @@
                     </EditText>
 
                     <EditText
-                        android:id="@+id/cumbitsaati"
+                        android:id="@+id/cumbitsaatText"
                         android:layout_width="400dp"
                         android:layout_height="49dp"
                         android:hint="Bitis Saati"
@@ -406,7 +406,7 @@
                     android:orientation="vertical">
 
                     <EditText
-                        android:id="@+id/cmtsdersadi"
+                        android:id="@+id/cmtsdersText"
                         android:layout_width="400dp"
                         android:layout_height="49dp"
                         android:hint="Ders Adı"
@@ -415,7 +415,7 @@
                     </EditText>
 
                     <EditText
-                        android:id="@+id/cmtsbassaati"
+                        android:id="@+id/cmtsbassaatText"
                         android:layout_width="400dp"
                         android:layout_height="49dp"
                         android:hint="Başlangıç Saati"
@@ -424,7 +424,7 @@
                     </EditText>
 
                     <EditText
-                        android:id="@+id/cmtsbitsaati"
+                        android:id="@+id/cmtsbitsaatText"
                         android:layout_width="400dp"
                         android:layout_height="49dp"
                         android:hint="Bitis Saati"
@@ -477,7 +477,7 @@
                     android:orientation="vertical">
 
                     <EditText
-                        android:id="@+id/pzrdersadi"
+                        android:id="@+id/pzrdersText"
                         android:layout_width="400dp"
                         android:layout_height="49dp"
                         android:hint="Ders Adı"
@@ -486,7 +486,7 @@
                     </EditText>
 
                     <EditText
-                        android:id="@+id/pzrbassaati"
+                        android:id="@+id/pzrbassaatText"
                         android:layout_width="400dp"
                         android:layout_height="49dp"
                         android:hint="Başlangıç Saati"
@@ -495,7 +495,7 @@
                     </EditText>
 
                     <EditText
-                        android:id="@+id/pzrbitsaati"
+                        android:id="@+id/pzrbitsaatText"
                         android:layout_width="400dp"
                         android:layout_height="49dp"
                         android:hint="Bitis Saati"
@@ -527,6 +527,7 @@
         android:layout_marginEnd="104dp"
         android:layout_marginBottom="24dp"
         android:background="@drawable/button_giris"
+        android:onClick="save"
         android:text="Kaydet"
         android:textSize="20dp"
         android:textStyle="bold"

@@ -16,14 +16,13 @@ import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
 
-private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)
         val view=binding.root
         enableEdgeToEdge()
-        //setContentView(R.layout.activity_main)
         setContentView(view)
         auth =Firebase.auth
         val currentUser=auth.currentUser
@@ -33,20 +32,7 @@ private lateinit var binding: ActivityMainBinding
             finish()
         }
 
-        //val kbutton=findViewById<Button>(R.id.button3)//kaydol butonu
-        //val gbutton=findViewById<Button>(R.id.button2)//giris butonu
 
-       /* kbutton.setOnClickListener{
-            val intent= Intent(this,MainKayitOl::class.java)
-
-            startActivity(intent)
-        }
-
-        gbutton.setOnClickListener {
-            val intent= Intent(this,AnaSayfa::class.java)
-
-            startActivity(intent)
-        }*/
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
