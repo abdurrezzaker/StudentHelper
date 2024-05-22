@@ -8,7 +8,7 @@
     tools:context=".PlanDuzenle">
 
     <EditText
-        android:id="@+id/editTextText5"
+        android:id="@+id/NameText"
         android:layout_width="333dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/statementText"
         android:layout_width="333dp"
         android:layout_height="150dp"
         android:layout_marginStart="32dp"
@@ -34,10 +34,10 @@
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
+        app:layout_constraintTop_toBottomOf="@+id/timeText" />
 
-    <EditText
-        android:id="@+id/editTextDate"
+    <Button
+        android:id="@+id/dateText"
         android:layout_width="333dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
@@ -45,13 +45,14 @@
         android:layout_marginEnd="28dp"
         android:ems="10"
         android:hint="Tarih"
+        android:onClick="date"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText5" />
+        app:layout_constraintTop_toBottomOf="@+id/NameText" />
 
     <EditText
-        android:id="@+id/editTextTime"
+        android:id="@+id/timeText"
         android:layout_width="333dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
@@ -62,81 +63,34 @@
         android:inputType="time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+        app:layout_constraintTop_toBottomOf="@+id/dateText" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/kaydolbutton"
+        android:onClick="ekle"
         android:text="Ekle"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
-
-    <ScrollView
-        android:id="@+id/planscrollview"
-        android:layout_width="330dp"
-        android:layout_height="178dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/plananasayfadon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/planlarbaslik"
-                android:layout_width="333dp"
-                android:layout_height="30dp"
-                android:background="@color/textarkaplan"
-                android:text="Planlarım"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold">
-
-            </TextView>
-
-            <ListView
-                android:id="@+id/planlistview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            </ListView>
-
-        </LinearLayout>
-    </ScrollView>
-
-    <Button
-        android:id="@+id/plansil"
-        android:layout_width="65dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/iptal"
-        android:text="Sil"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/planscrollview" />
+        app:layout_constraintTop_toBottomOf="@+id/statementText" />
 
     <Button
         android:id="@+id/plananasayfadon"
         android:layout_width="94dp"
         android:layout_height="55dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="148dp"
         android:background="@drawable/kaydolbutton"
         android:drawableTop="@drawable/baseline_home_24"
+        android:onClick="anaSayfa"
         android:text="Anasayfa"
         android:textColor="@color/enterbutton"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/planscrollview" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statementText" />
 </androidx.constraintlayout.widget.ConstraintLayout>

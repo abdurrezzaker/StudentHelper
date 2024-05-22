@@ -4,6 +4,7 @@ package com.abdurezaker.studenthelper.fragments
 
 import android.content.Context
 import android.content.Intent
+import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,11 +21,13 @@ import com.abdurezaker.studenthelper.R
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.Lifecycle
 import com.abdurezaker.studenthelper.AnaSayfa
 import com.abdurezaker.studenthelper.MainKayitOl
 import com.abdurezaker.studenthelper.PlanDuzenle
 import com.abdurezaker.studenthelper.ProgramDuzenle
 import com.abdurezaker.studenthelper.databinding.FragmentCalenderBinding
+import com.google.android.gms.common.api.internal.LifecycleActivity
 import java.lang.Exception
 
 
@@ -32,18 +35,14 @@ class CalenderFragment: DialogFragment() {
 
 
 
-    /* override fun onCreate(savedInstanceState: Bundle?) {
-         super.onCreate(savedInstanceState)
-     }*/
-
     private var _binding: FragmentCalenderBinding? = null
+
+    private var myPLansDataBase: SQLiteDatabase? = null
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
 
         _binding =  FragmentCalenderBinding.inflate(inflater,container,false)
 
@@ -53,11 +52,9 @@ class CalenderFragment: DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewListView()
-
         val programDuzenleClick = view.findViewById<Button>(R.id.programduzenle)
-
         programDuzenleClick.setOnClickListener {
+
             val intent = Intent(requireContext(), ProgramDuzenle::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
@@ -70,9 +67,27 @@ class CalenderFragment: DialogFragment() {
             startActivity(intent)
         }
 
+
+        try {
+            context?.let {
+                myPLansDataBase = it.openOrCreateDatabase("Plans", Context.MODE_PRIVATE,null)
+
+                myPLansDataBase?.execSQL("CREATE TABLE IF NOT EXISTS plans (id INTEGER PRIMARY KEY, name VARCHAR," +
+                        "date VARCHAR,time VARCHAR,explantation VARCHAR)")
+            }
+
+        }catch (e:Exception){
+            e.printStackTrace()
+        }
+        programsListView()
+        plansListView()
+
+
         binding.listView.setOnItemLongClickListener { parent, view, position, id ->
 
             val slectedItem = binding.listView.getItemAtPosition(position).toString()
+            val list = slectedItem.split(" ")
+            val array  = list.toTypedArray()
            
             val builder : AlertDialog.Builder = AlertDialog.Builder(requireContext())
                 .setTitle("Silme Onayı")
@@ -85,11 +100,9 @@ class CalenderFragment: DialogFragment() {
                             "CREATE TABLE IF NOT EXISTS programs (id INTEGER PRIMARY KEY, gun VARCHAR," +
                                     "dersAdi VARCHAR,dersBaslangic VARCHAR,dersBitis VARCHAR)"
                         )
-                        myDataBase.execSQL("DELETE FROM programs where dersAdi='$slectedItem'")
+                        myDataBase.execSQL("DELETE FROM programs where id=${array[0]}")
 
-                        viewListView()
-
-
+                        programsListView()
                     } catch (e: Exception) {
                         e.printStackTrace()
                     }
@@ -102,8 +115,51 @@ class CalenderFragment: DialogFragment() {
             true
         }
 
+        //***************************************************
+        binding.listView2.setOnItemLongClickListener { parent, view, position, id ->
+
+            val slectedItem = binding.listView2.getItemAtPosition(position).toString()
+
+            val list = slectedItem.split(" ")
+            val array = list.toTypedArray()
+
+            val builder : AlertDialog.Builder = AlertDialog.Builder(requireContext())
+                .setTitle("Silme Onayı")
+                .setMessage("${slectedItem} planı silmek istediğinizden emin misiniz?")
+                .setPositiveButton("Evet"){dialog,id ->
+                    myPLansDataBase?.let {
+                        it.execSQL("DELETE FROM plans where id = ${array[0]}")
+                        plansListView()
+                    }
+                }
+                .setNegativeButton("Hayır"){dialog,id ->
+
+                }
+            builder.show()
+
+            true
+        }
+
     }
-    fun viewListView(){
+    fun plansListView(){
+        var adapter: ArrayAdapter<String>? = null
+        myPLansDataBase?.let {
+            val  cursor = it.rawQuery("SELECT * FROM plans", null)
+            var planNames = ArrayList<String>()
+            while (cursor.moveToNext()){
+                val planNamesID = cursor.getColumnIndex("name")
+                val planName = cursor.getString(planNamesID).toString()
+                val ID = cursor.getColumnIndex("id")
+                val id = cursor.getString(ID).toString()
+                planNames.add(id + " "+ planName )
+            }
+            adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1,planNames)
+            binding.listView2.adapter = adapter
+            cursor.close()
+        }
+
+    }
+    fun programsListView(){
         var adapter:ArrayAdapter<String>? = null
         try {
             val context = requireContext()
@@ -122,7 +178,9 @@ class CalenderFragment: DialogFragment() {
             while (cursor.moveToNext()) {
                 val dersAdiID = cursor.getColumnIndex("dersAdi")
                 val dersAdi = cursor.getString(dersAdiID).toString()
-                dersIsimler.add(dersAdi)
+                val ID = cursor.getColumnIndex("id")
+                val id = cursor.getString(ID)
+                dersIsimler.add(id + " " +dersAdi)
             }
             adapter = ArrayAdapter(context, android.R.layout.simple_list_item_1, dersIsimler)
             binding.listView.adapter = adapter
@@ -131,6 +189,8 @@ class CalenderFragment: DialogFragment() {
             e.printStackTrace()
         }
     }
+
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
