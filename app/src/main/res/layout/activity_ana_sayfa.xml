@@ -13,13 +13,13 @@
         android:layout_height="676dp"
         android:layout_above="@id/bottom_navbar" >
 
-        <Button
-            android:id="@+id/signout"
-            android:layout_width="match_parent"
-            android:layout_height="61dp"
-            android:onClick="signOut"
-            android:text="SİGN OUT" />
+
     </FrameLayout>
+
+
+
+
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navbar"
@@ -31,5 +31,7 @@
         app:itemIconTint="#fff"
         app:itemTextColor="#fff"
         app:menu="@menu/bottom_bar"/>
+
+
 
 </RelativeLayout>

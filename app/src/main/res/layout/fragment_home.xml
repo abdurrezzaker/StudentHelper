@@ -4,4 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.HomeFragment"/>
+    tools:context=".fragments.HomeFragment">
+
+    <TextView
+        android:id="@+id/baslik"
+        android:layout_width="210dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="StudentHelper"
+        android:textAlignment="center"
+        android:textColor="@color/enterbutton"
+        android:textSize="27dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+
+    <Button
+        android:id="@+id/signout"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/kaydolbutton"
+        android:drawableRight="@drawable/baseline_logout_24"
+        android:onClick="signOut"
+        android:text="Cıkış"
+        android:textColor="@color/enterbutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </Button>
+</androidx.constraintlayout.widget.ConstraintLayout>

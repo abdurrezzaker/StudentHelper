@@ -15,7 +15,6 @@ import com.abdurezaker.studenthelper.fragments.ChatFragment
 import com.abdurezaker.studenthelper.fragments.HomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.auth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
