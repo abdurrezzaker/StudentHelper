@@ -3,6 +3,7 @@ package com.abdurezaker.studenthelper
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+       // getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
         binding= ActivityMainBinding.inflate(layoutInflater)
         val view=binding.root
         enableEdgeToEdge()
@@ -30,6 +32,8 @@ class MainActivity : AppCompatActivity() {
             val intent=Intent(this@MainActivity,AnaSayfa::class.java)
             startActivity(intent)
             finish()
+
+
         }
 
 

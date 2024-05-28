@@ -4,57 +4,104 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.abdurezaker.studenthelper.R
+import com.abdurezaker.studenthelper.databinding.FragmentChatBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ChatFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ChatFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+   private var _binding: FragmentChatBinding?= null
+    private val binding get()=_binding!!
+    private lateinit var firestore: FirebaseFirestore
+    private lateinit var auth: FirebaseAuth
+    private lateinit var adapter: ChatAdapter
+    private var chats= arrayListOf<Chat>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        firestore=Firebase.firestore
+        auth=Firebase.auth
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_chat, container, false)
+        _binding=FragmentChatBinding.inflate(inflater,container,false)
+        val view=binding.root
+        return view
+       // return inflater.inflate(R.layout.fragment_chat, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ChatFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ChatFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        adapter=ChatAdapter()
+        binding.chatrecycler.adapter=adapter
+        binding.chatrecycler.layoutManager=LinearLayoutManager(requireContext())
+        binding.sendButton.setOnClickListener {
+
+            auth.currentUser?.let {
+                val user=it.email
+                val chatText=binding.chatText.text.toString()
+                val date =FieldValue.serverTimestamp()
+
+                val dataMap=HashMap<String,Any>()
+                dataMap.put("text",chatText)
+                dataMap.put("user",user!!)
+                dataMap.put("date",date)
+
+                firestore.collection("Chats").add(dataMap).addOnSuccessListener {
+                    binding.chatText.setText("")
+                }.addOnFailureListener {
+                    Toast.makeText(requireContext(),it.localizedMessage,Toast.LENGTH_LONG).show()
+                    binding.chatText.setText("")
                 }
             }
+
+
+        }
+        firestore.collection("Chats").orderBy("date",Query.Direction.ASCENDING).addSnapshotListener { value, error ->
+            if(error!=null){
+                Toast.makeText(requireContext(),error.localizedMessage,Toast.LENGTH_LONG).show()
+            }else{
+                if(value!=null){
+                    if(value.isEmpty){
+                        Toast.makeText(requireContext(),"Mesaj yok",Toast.LENGTH_LONG).show()
+                    }else{
+                        val documents=value.documents
+                        chats.clear()
+                        for(document in documents){
+                            val text= document.get("text") as String
+                            val user=document.get("user") as String
+                            val chat=Chat(user,text)
+                            chats.add(chat)
+                            adapter.chats=chats
+                            println(text)
+
+                        }
+                    }
+                    adapter.notifyDataSetChanged()
+
+                }
+            }
+        }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+    }
+
+
 }
