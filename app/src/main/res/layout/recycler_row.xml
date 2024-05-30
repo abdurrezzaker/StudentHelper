@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/recyclerChatView"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/lineer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="deneme"
-        android:textSize="20sp"
-        android:layout_margin="5dp"
-        android:textColor="@color/white"
-        android:background="@color/colorPrimary"
+        android:paddingRight="100dp"
+        android:paddingBottom="5dp"
+>
+        <TextView
+            android:id="@+id/recyclerChatView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="deneme"
+            android:textAlignment="textStart"
+            android:paddingLeft="2dp"
+            android:textSize="20sp"
+            android:layout_margin="5dp"
+            android:textColor="@color/white"
+            android:background="@drawable/chatsend"
 
-        >
+            >
 
 
-    </TextView>
+        </TextView>
 
-</LinearLayout>
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>
